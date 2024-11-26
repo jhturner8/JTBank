@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - JT Bank</title>
+    <link rel="icon" href="logo.JPEG" type="image/JPEG">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+<header>
+    <nav class="navbar">
+        <div class="navdiv">
+            <div class="logo">
+                <a href="Homepage.html">JT Bank</a>
+            </div>
+            <ul>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+                <li><a href="Faq.html" class="active">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<br>
+<main>
+    <div class="services-hero">
+        <div class="services-hero-content reveal fade-bottom">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about our banking services and products.</p>
+        </div>
+    </div>
+    <section class="faq-section">
+        <div class="faq-container reveal fade-bottom">
+            <div class="faq-category">
+                <h2>Account & Banking</h2>
+                <div class="faq-item">
+                    <button class="accordion">What are your branch operating hours?</button>
+                    <div class="panel">
+                        <p>Our branches are open from 9:00 AM to 5:00 PM, Monday through Friday. Branches are closed on Weekends and public holidays.</p>
+                    </div>
+
+                    <button class="accordion">How do I open an account with JT Bank?</button>
+                    <div class="panel">
+                        <p>You can open an account by visiting your nearest branch with a valid ID and proof of address.</p>
+                    </div>
+
+                    <button class="accordion">What types of savings accounts do you offer?</button>
+                    <div class="panel">
+                        <p>Here at JT Bank, we offer various savings accounts, including basic savings, high-yield savings, and accounts tailored for students and senior citizens.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category reveal fade-bottom">
+                <h2>Loans & Mortgages</h2>
+                <div class="faq-item">
+                    <button class="accordion">What types of loans do you offer?</button> 
+                    <div class="panel">
+                        <p>Here at JT Bank we offer a variety of loans such as personal loans, business loans, auto loans, and mortgages with flexible repayment terms and competitive interest rates.</p>
+                    </div>
+
+                    <button class="accordion">How do I apply for a loan?</button>
+                    <div class="panel">
+                        <p>You can apply for a loan by visiting a branch, or by contacting our customer service team for assistance.</p>
+                    </div>
+
+                    <button class="accordion">What are the eligibility criteria for a mortgage?</button>
+                    <div class="panel">
+                        <p>Mortgage eligibility depends on factors such as income, credit score, and existing debts. Use our <a href="Calculator.html" class="faq-link">Mortgage Calculator</a> to estimate your loan affordability.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category reveal fade-bottom">
+                <h2>Cards & Payments</h2>
+                <div class="faq-item">
+                    <button class="accordion">How do I apply for a credit card?</button>
+                    <div class="panel">
+                        <p>You can apply for a credit card online or at any of our branches. Choose from a range of cards designed for rewards, cashback, or low-interest rates.</p>
+                    </div>
+
+                    <button class="accordion">What should I do if I lose my card?</button>
+                    <div class="panel">
+                        <p>If you lose your card, immediately contact our 24/7 helpline at 0800-123-4567 to block your card. You can request a replacement card through online banking or at any branch.</p>
+                    </div>
+
+                    <button class="accordion">Are there any foreign transaction fees?</button>
+                    <div class="panel">
+                        <p>Foreign transaction fees vary by card type. Premium accounts often include reduced or waived foreign transaction fees. Check your card's terms and conditions for specific details.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 JT Bank.</p>
+</footer>
+
+<script>
+    $(document).ready(function() {
+        $('.accordion').click(function() {
+            $(this).toggleClass('active');
+            const panel = $(this).next('.panel');
+            
+            if (panel.css('maxHeight') && panel.css('maxHeight') !== '0px') {
+                panel.css('maxHeight', '0px');
+            } else {
+                panel.css('maxHeight', panel.prop('scrollHeight') + 'px');
+            }
+        });
+    });
+
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("load", reveal);
+    reveal();
+</script>
+</body>
+</html>

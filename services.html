@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - JT Bank</title>
+    <link rel="icon" href="logo.JPEG" type="image/JPEG">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".service-toggle").click(function () {
+                const details = $(this).next(".service-details");
+                details.slideToggle(300);
+                $(this).text(details.is(":visible") ? "Show Less" : "Show More");
+            });
+        });
+    </script>
+</head>
+
+<body>
+<header>
+    <nav class="navbar">
+        <div class="navdiv">
+            <div class="logo">
+                <a href="Homepage.html">JT Bank</a>
+            </div>
+            <ul>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Services.html" class="active">Services</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+                <li><a href="Faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<br>
+<main>
+    <div class="services-hero">
+        <div class="services-hero-content reveal fade-bottom">
+            <h1>Our Services</h1>
+            <p>Discover the range of financial solutions we offer to help you achieve your financial goals.</p>
+        </div>
+    </div>
+
+    <section class="services-section">
+        <div class="services-grid">
+            <div class="service-card reveal fade-left">
+                <div class="service-icon">💰</div>
+                <div class="service-content">
+                    <h2>Savings Accounts</h2>
+                    <p>Secure your future with flexible savings options tailored to your needs.</p>
+                    <button class="service-toggle">Show More</button>
+                    <div class="service-details" style="display: none;">
+                        <p>Our savings accounts come with competitive interest rates, easy access to your funds, and no hidden fees. Whether you're saving for a rainy day or a big purchase, we've got you covered.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card reveal fade-right">
+                <div class="service-icon">💳</div>
+                <div class="service-content">
+                    <h2>Personal Loans</h2>
+                    <p>Get access to funds for your personal needs with quick and hassle-free loans.</p>
+                    <button class="service-toggle">Show More</button>
+                    <div class="service-details" style="display: none;">
+                        <p>We offer flexible repayment terms, low-interest rates, and fast approvals to help you cover unexpected expenses, education, or major purchases.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card reveal fade-left">
+                <div class="service-icon">🏠</div>
+                <div class="service-content">
+                    <h2>Mortgages</h2>
+                    <p>Turn your dream home into a reality with our mortgage solutions.</p>
+                    <button class="service-toggle">Show More</button>
+                    <div class="service-details" style="display: none;">
+                        <p>Our mortgage plans include fixed and variable rates, expert advice, and tools like our <a href="calculator.html">Mortgage Calculator</a> to help you budget effectively.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card reveal fade-right">
+                <div class="service-icon">💼</div>
+                <div class="service-content">
+                    <h2>Business Banking</h2>
+                    <p>Support your business growth with tailored financial solutions.</p>
+                    <button class="service-toggle">Show More</button>
+                    <div class="service-details" style="display: none;">
+                        <p>We provide business accounts, lines of credit, and investment advice to help you manage cash flow and expand operations smoothly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 JT Bank.</p>
+</footer>
+
+<script>
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        reveals.forEach(reveal => {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveal.getBoundingClientRect().top;
+            var elementVisible = 150;
+            
+            if (elementTop < windowHeight - elementVisible) {
+                reveal.classList.add("active");
+            }
+        });
+    }
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("load", reveal);
+    reveal();
+</script>
+</body>
+</html>

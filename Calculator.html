@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mortgage Calculator - JT Bank</title>
+	<link rel="icon" href="logo.JPEG" type="image/JPEG">
+</head>
+<body>
+<header>
+	<nav class="navbar">
+	<div class="navdiv">
+		<div class="logo">
+			<a href="Homepage.html">JT Bank</a>
+		</div>
+		<ul>
+			<li><a href="About.html">About Us</a></li>
+			<li><a href="Services.html">Services</a></li>
+			<li><a href="Contact.html">Contact Us</a></li>
+			<li><a href="Faq.html">FAQ</a></li>
+		</ul>
+	</div>
+	</nav>
+</header>
+
+<div class="main-body">
+	<div class="calculator-container">
+		<h1 class="Mortgagae-Header">Mortgage Calculator</h1>
+		<form id="mortgage-form">
+			<div class="input-group">
+				<label for="loan-amount">Loan Amount (£):</label>
+				<input type="number" id="loan-amount" required min="0" placeholder="Enter loan amount">
+			</div>
+
+			<div class="input-group">
+				<label for="loan-term">Loan Term (years):</label>
+				<input type="number" id="loan-term" required min="5" max="35" placeholder="5-35 years">
+			</div>
+
+			<div class="input-group">
+				<label for="monthly-income">Monthly Income (£):</label>
+				<input type="number" id="monthly-income" required min="0" placeholder="Enter monthly income">
+			</div>
+
+			<button type="button" id="calculate-button">Calculate</button>
+		</form>
+		<div id="result"></div>
+	</div>
+</div>
+
+<script>
+	document.getElementById("calculate-button").addEventListener("click", function () {
+		const loanAmount = parseFloat(document.getElementById("loan-amount").value);
+		const loanTerm = parseFloat(document.getElementById("loan-term").value);
+		const monthlyIncome = parseFloat(document.getElementById("monthly-income").value);
+
+		if (loanAmount <= 0 || loanTerm <= 0 || monthlyIncome <= 0) {
+			alert("Please enter valid, positive numbers for all fields.");
+			return;
+		}
+
+		const annualInterestRate = 4.5 / 100;
+		const monthlyInterestRate = annualInterestRate / 12;
+		const totalMonths = loanTerm * 12;
+
+		const monthlyPayment = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, totalMonths)) /
+							   (Math.pow(1 + monthlyInterestRate, totalMonths) - 1);
+
+		const maxAffordablePayment = 0.3 * monthlyIncome;
+
+		let resultMessage = `<div class="result-item"><strong>Monthly Payment:</strong> £${monthlyPayment.toFixed(2)}</div>`;
+		if (monthlyPayment > maxAffordablePayment) {
+			resultMessage += `<div class="result-item"><strong class="status-denied">Loan denied:</strong> Monthly payment exceeds 30% of your income.</div>`;
+		} else {
+			const totalPayment = monthlyPayment * totalMonths;
+			const totalInterest = totalPayment - loanAmount;
+			const remainingIncome = monthlyIncome - monthlyPayment;
+
+			resultMessage += `
+				<div class="result-item"><strong class="status-approved">Loan approved!</strong></div>
+				<div class="result-item"><strong>Total Payment:</strong> £${totalPayment.toFixed(2)}</div>
+				<div class="result-item"><strong>Total Interest:</strong> £${totalInterest.toFixed(2)}</div>
+				<div class="result-item"><strong>Remaining Income after Expenses:</strong> £${remainingIncome.toFixed(2)}</div>
+			`;
+		}
+
+		document.getElementById("result").innerHTML = resultMessage;
+	});
+</script>
+</body>
+</html>

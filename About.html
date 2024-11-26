@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - JT Bank</title>
+    <link rel="icon" href="logo.JPEG" type="image/JPEG">
+</head>
+
+<body>
+<header>
+    <nav class="navbar">
+        <div class="navdiv">
+            <div class="logo">
+                <a href="Homepage.html">JT Bank</a>
+            </div>
+            <ul>
+                <li><a href="About.html" class="active">About Us</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+                <li><a href="Faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<br>
+<main>
+    <div class="about-hero">
+        <div class="about-hero-content reveal fade-bottom">
+            <h1>About JT Bank</h1>
+        </div>
+    </div>
+
+    <section class="about-container">
+        <div class="about-intro reveal fade-bottom">
+            <p class="lead-text">
+                Welcome to JT Bank, where trust meets innovation. Established in 2005, we have been serving communities 
+                with reliable financial solutions for nearly two decades. Our mission is to empower individuals and businesses 
+                by providing tailored financial services that drive growth and stability.
+            </p>
+        </div>
+
+        <div class="about-mission reveal fade-bottom">
+            <h2>Our Mission</h2>
+            <div class="mission-card">
+                <div class="mission-icon">🎯</div>
+                <p>
+                    <strong>Empowering Financial Freedom</strong><br>
+                    "Our mission is to empower individuals and businesses to achieve financial freedom by providing personalized banking solutions and exceptional customer service."
+                </p>
+            </div>
+        </div>
+
+        <div class="about-values reveal fade-bottom">
+            <h2>Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card reveal fade-left">
+                    <div class="value-icon">🤝</div>
+                    <h3>Community</h3>
+                    <p>Commitment to supporting local communities to create a bigger, brighter financial future for all.</p>
+                </div>
+                <div class="value-card reveal fade-bottom">
+                    <div class="value-icon">⚖️</div>
+                    <h3>Integrity</h3>
+                    <p>We are committed to build ethical practices to build trust with our customers and stakeholders.</p>
+                </div>
+                <div class="value-card reveal fade-right">
+                    <div class="value-icon">🌟</div>
+                    <h3>Excellence</h3>
+                    <p>We strive to provide excellence in all aspects of our operations.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-history reveal fade-bottom">
+            <h2>Our History</h2>
+            <div class="history-content">
+                <p>
+                    Founded by Josh Turner, JT Bank started as a small bank. Over the last 20 years, we've grown to serve 
+                    customers across the midlands, offering a range of financial products, including our new mortgage calculator.
+                </p>
+                <p>
+                    Today, we pride ourselves on being a leader in customer satisfaction, blending traditional values with modern 
+                    banking conveniences.
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 JT Bank.</p>
+</footer>
+
+<script>
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        reveals.forEach(reveal => {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveal.getBoundingClientRect().top;
+            var elementVisible = 150;
+            
+            if (elementTop < windowHeight - elementVisible) {
+                reveal.classList.add("active");
+            }
+        });
+    }
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("load", reveal);
+    reveal();
+</script>
+</body>
+</html>

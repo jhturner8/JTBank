@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JT Bank - Professional Banking Services</title>
+    <link rel="icon" href="logo.JPEG" type="image/JPEG">
+    <meta name="description" content="JT Bank offers professional banking services including mortgages, loans, and financial planning.">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navdiv">
+                <div class="logo">
+                    <a href="Homepage.html">JT Bank</a>
+                </div>
+                <ul>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                    <li><a href="Contact.html">Contact Us</a></li>
+                    <li><a href="Faq.html">FAQ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-box reveal fade-bottom">
+            <div class="hero-text">
+                <h1 class="hero-main-text">Try our brand new mortgage calculator today.</h1>
+                <p class="hero-description">
+                    Discover our competitive mortgage rates. Try our mortgage calculator to plan your new home purchase.
+                </p>
+                <a href="calculator.html">
+                    <button class="hero-button">Calculate Your Mortgage</button>
+                </a>
+            </div>
+            <div class="hero-image">
+                <img src="image.png" alt="Modern banking illustration">
+            </div>
+        </section>
+
+        <section class="features">
+            <h2 class="reveal fade-bottom">Why Choose JT Bank</h2>
+            <div class="features-grid">
+                <div class="feature-card reveal fade-left">
+                    <div class="feature-icon">💰</div>
+                    <h3>Competitive Rates</h3>
+                    <p>Get access to the best loan rates here at JT Bank</p>
+                </div>
+                <div class="feature-card reveal fade-bottom">
+                    <div class="feature-icon">🏠</div>
+                    <h3>Simple Mortgages</h3>
+                    <p>Simple application process with low interest rates.</p>
+                </div>
+                <div class="feature-card reveal fade-right">
+                    <div class="feature-icon">📱</div>
+                    <h3>Digital Banking</h3>
+                    <p>Access your accounts securely from anywhere, at any time.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2 class="reveal fade-bottom">Customer Reviews</h2><br>
+            <div class="testimonial-grid">
+                <div class="testimonial-card reveal fade-left">
+                    <p class="quote">JT Bank made my first home purchase a breeze. Their mortgage calculator allowed me to find the perfect home for my income.</p>
+                    <p class="author">- John Smith</p>
+                </div>
+                <div class="testimonial-card reveal fade-right">
+                    <p class="quote">Definitly the best bank i have ever used. Easy to use and secure. Definitly recommend for anyone living in the midlands.</p>
+                    <p class="author">- Michael Bob</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 JT Bank. </p>
+    </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            
+            reveals.forEach(reveal => {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveal.getBoundingClientRect().top;
+                var elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add("active");
+                }
+            });
+        }
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal);
+
+        reveal();
+    </script>
+</body>
+</html>
